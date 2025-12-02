@@ -41,7 +41,11 @@ This library is intended for use in the browser (React, Vue, Svelte, Vanilla JS,
 ### 1. Basic Example
 
 ```javascript
-import { exportToPptx } from 'dom-to-pptx';
+import { exportToPptx } from 'dom-to-pptx'; // ESM or CJS import
+
+// Note: If you are using a module bundler, it is recommended to import pptxgenjs
+// directly into your project to ensure tree-shaking and optimal bundle size.
+// import PptxGenJS from 'pptxgenjs'; // Uncomment and use if needed for your setup
 
 document.getElementById('download-btn').addEventListener('click', async () => {
   // Pass the CSS selector of the container you want to turn into a slide
@@ -56,7 +60,7 @@ document.getElementById('download-btn').addEventListener('click', async () => {
 To export multiple HTML elements as separate slides, pass an array of elements or selectors:
 
 ```javascript
-import { exportToPptx } from 'dom-to-pptx';
+import { exportToPptx } from 'dom-to-pptx'; // ESM or CJS import
 
 document.getElementById('export-btn').addEventListener('click', async () => {
   const slideElements = document.querySelectorAll('.slide');
@@ -71,6 +75,10 @@ document.getElementById('export-btn').addEventListener('click', async () => {
 For direct inclusion in a web page using a `<script>` tag, you can use the UMD bundle:
 
 ```html
+<!-- include pptxgenjs UMD bundle first -->
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@latest/dist/pptxgen.bundle.js"></script>
+
+<!-- then include dom-to-pptx UMD bundle -->
 <script src="https://cdn.jsdelivr.net/npm/dom-to-pptx@latest/dist/dom-to-pptx.min.js"></script>
 <script>
   document.getElementById('download-btn').addEventListener('click', async () => {
@@ -178,3 +186,19 @@ MIT © [Atharva Dharmendra Jagtap](https://github.com/atharva9167j) and `dom-to-
 ## Acknowledgements
 
 This project is built on top of [PptxGenJS](https://github.com/gitbrent/PptxGenJS). Huge thanks to the PptxGenJS maintainers and all contributors — dom-to-pptx leverages and extends their excellent work on PPTX generation.
+
+## Peer Dependencies
+
+`dom-to-pptx` relies on `pptxgenjs` as a peer dependency. You need to install it separately in your project:
+
+```bash
+npm install pptxgenjs
+```
+
+## Peer Dependencies
+
+`dom-to-pptx` relies on `pptxgenjs` as a peer dependency. You need to install it separately in your project:
+
+```bash
+npm install pptxgenjs
+```

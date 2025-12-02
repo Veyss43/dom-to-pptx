@@ -1,5 +1,8 @@
 // src/index.js
-import PptxGenJS from 'pptxgenjs';
+import * as PptxGenJSImport from 'pptxgenjs';
+// Normalize import so consumers get the constructor whether `pptxgenjs`
+// was published as a default export or CommonJS module with a `default` property.
+const PptxGenJS = PptxGenJSImport?.default ?? PptxGenJSImport;
 import {
   parseColor,
   getTextStyle,
@@ -25,7 +28,20 @@ const PX_TO_INCH = 1 / PPI;
  * @param {Object} options - { fileName: string }
  */
 export async function exportToPptx(target, options = {}) {
-  const pptx = new PptxGenJS();
+  // Resolve the actual constructor in case `pptxgenjs` was imported/required
+  // with different shapes (function, { default: fn }, or { PptxGenJS: fn }).
+  const resolvePptxConstructor = (pkg) => {
+    if (!pkg) return null;
+    if (typeof pkg === 'function') return pkg;
+    if (pkg && typeof pkg.default === 'function') return pkg.default;
+    if (pkg && typeof pkg.PptxGenJS === 'function') return pkg.PptxGenJS;
+    if (pkg && pkg.PptxGenJS && typeof pkg.PptxGenJS.default === 'function') return pkg.PptxGenJS.default;
+    return null;
+  };
+
+  const PptxConstructor = resolvePptxConstructor(PptxGenJS);
+  if (!PptxConstructor) throw new Error('PptxGenJS constructor not found. Ensure `pptxgenjs` is installed or included as a script.');
+  const pptx = new PptxConstructor();
   pptx.layout = 'LAYOUT_16x9';
 
   // Standardize input to an array, ensuring single or multiple elements are handled consistently
